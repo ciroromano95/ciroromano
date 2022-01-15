@@ -1,0 +1,1809 @@
+<?php
+
+
+?>
+
+<script>
+    window.alert("benvenuto nel mio sito clicca ok per continuare")
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ciro.romano</title>    
+
+    <div ng-app="">
+  <p>Name : <input type="text" ng-model="name"></p>
+  <h1>Hello {{name}}</h1>
+</div>
+<div ng-app="" ng-init="firstName='Ciro'">
+
+    
+
+    
+    </div>
+
+
+
+    <script>
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+  $scope.firstName= "John";
+  $scope.lastName= "Doe";
+});
+    </script>
+
+    
+    
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<style>
+   
+    :root{
+        --main-color:#4C84FF;
+        --primary-bg-color:#fff;
+        --secondary-bg-color:#eee;
+        --primary-text-color:#222;
+        --secondary-text-color:#666;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+    
+    *{
+        font-family: 'Roboto', sans-serif;
+        margin:0; padding:0;
+        box-sizing: border-box;
+        text-transform: capitalize;
+        outline: none; border:none;
+        text-decoration: none;
+        transition:all .3s cubic-bezier(.38,1.15,.7,1.12);
+    }
+    
+    *::selection{
+        background-color: var(--main-color);
+        color:#fff;
+    }
+    
+    html{
+        font-size: 62.5%;
+        overflow-x: hidden;
+    }
+    
+    html::-webkit-scrollbar{
+        width:1.3rem;
+    }
+    
+    html::-webkit-scrollbar-track{
+        background-color: var(--secondary-bg-color);
+    }
+    
+    html::-webkit-scrollbar-thumb{
+        background-color: var(--main-color);
+    }
+    
+    body{
+        background:var(--secondary-bg-color);
+    }
+    
+    body.dark-theme{
+        --primary-bg-color:#252C48;
+        --secondary-bg-color:#171C32;
+        --primary-text-color:#fff;
+        --secondary-text-color:#eee;
+    }
+    
+    section{
+        min-height: 100vh;
+        padding:1rem;
+        padding:0 8%;
+    }
+    
+    .btn{
+        display: inline-block;
+        padding:.9rem 3.5rem;
+        font-size: 2rem;
+        background:none;
+        color:#fff;
+        border-radius: .5rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        margin-top: 1rem;
+        z-index: 0;
+        position: relative;
+        overflow: hidden;
+        border:.2rem solid var(--main-color);
+    }
+    
+    .btn::before{
+        content: '';
+        position: absolute;
+        top:50%; left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: .5rem;
+        background:var(--main-color);
+        height:85%;
+        width: 95%;
+        z-index: -1;
+        transition: .2s linear;
+    }
+    
+    .btn:hover:before{
+        top:100%;
+        transform: translate(-50%, 100%);
+    }
+    
+    .btn:hover{
+        color:var(--primary-text-color);
+    }
+    
+    .heading{
+       
+        font-size: 5rem;
+        color:var(--primary-text-color);
+        text-align: center;
+        padding:1rem;
+        text-transform: uppercase;
+    }
+    
+    .heading span{
+        color:var(--main-color);
+        text-transform: uppercase;
+    }
+    
+    #menu{
+        font-size: 2rem;
+        background:var(--main-color);
+        color:#fff;
+        border-radius: 5rem;
+        height:5rem;
+        width:5rem;
+        text-align: center;
+        line-height: 5rem;
+        position: fixed;
+        top: 2rem; right:2rem;
+        z-index: 1000;
+        cursor: pointer;
+    }
+    
+    #menu.fa-times{
+        transform:rotate(-180deg);
+    }
+    
+    .navbar{
+        position: fixed;
+        top:2.4rem; right:2.5rem;
+        padding:1.1rem 2rem;
+        padding-right: 4rem;
+        z-index: 999;
+        border:.2rem solid var(--main-color);
+        border-radius: 1rem;
+        background:var(--primary-bg-color);
+        opacity: 0;
+        transform-origin: top right;
+        transform: scale(0);
+    }
+    
+    .navbar.nav-toggle{
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    .navbar a{
+        display: block;
+        font-size: 2rem;
+        padding:1rem;
+        padding-right: 7rem;
+        color:var(--primary-text-color);
+    }
+    
+    .navbar a:hover{
+        color:var(--main-color);
+        transform: translateX(1rem);
+    }
+    
+    .home{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .home .image{
+        flex:1 1 40rem;
+        padding:1rem;
+        text-align: center;
+    }
+    
+    .home .image img{
+        height:50rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
+        border-top: 3rem solid var(--primary-bg-color);
+        border-right: 3rem solid var(--primary-bg-color);
+        border-bottom: 3rem solid var(--main-color);
+        border-left: 3rem solid var(--main-color);
+        border-radius: .5rem;
+    }
+    
+    .home .content{
+        flex:1 1 40rem;
+        padding:1rem;
+    }
+    
+    .home .content .hello{
+        display: inline-block;
+        padding:1rem 0;
+        font-size: 2.6rem;
+        color:var(--secondary-text-color);
+    }
+    
+    .home .content h3{
+        color:var(--primary-text-color);
+        font-size: 5rem;
+    }
+    
+    .home .content h3 span{
+        color:var(--main-color);
+    }
+    
+    .home .content p{
+        padding:1rem 0;
+        color:var(--secondary-text-color);
+        font-size: 2rem;
+    }
+    
+    .about .row{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .about .row .box{
+        flex:1 1 40rem;
+        background-color: var(--primary-bg-color);
+        border-radius: .5rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        padding:.5rem 1.5rem;
+        margin:1.5rem;
+    }
+    
+    .about .row .box .title{
+        color:var(--primary-text-color);
+        font-size: 2.5rem;
+        padding:1rem 0;
+    }
+    
+    .about .row .box .progress{
+        padding:1rem 0;
+    }
+    
+    .about .row .box .progress h3{
+        font-size: 1.7rem;
+        color:var(--secondary-text-color);
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .about .row .box .progress .bar{
+        height: 2.5rem;
+        border-radius: .5rem;
+        border:.2rem solid var(--main-color);
+        padding:.5rem;
+        margin:1rem 0;
+    }
+    
+    .about .row .box .progress .bar span{
+        height: 100%;
+        border-radius: .3rem;
+        background-color: var(--main-color);
+        display: block;
+    }
+    
+    .about .row .box:nth-child(1) .progress:nth-child(2) .bar span{
+        width: 95%;
+    }
+    
+    .about .row .box:nth-child(1) .progress:nth-child(3) .bar span{
+        width: 80%;
+    }
+    
+    .about .row .box:nth-child(1) .progress:nth-child(4) .bar span{
+        width: 65%;
+    }
+    
+    .about .row .box:nth-child(1) .progress:nth-child(5) .bar span{
+        width: 75%;
+    }
+    
+    .about .row .box:nth-child(2) .progress:nth-child(2) .bar span{
+        width: 98%;
+    }
+    
+    .about .row .box:nth-child(2) .progress:nth-child(3) .bar span{
+        width: 67%;
+    }
+    
+    .about .row .box:nth-child(2) .progress:nth-child(4) .bar span{
+        width: 75%;
+    }
+    
+    .about .row .box:nth-child(2) .progress:nth-child(5) .bar span{
+        width: 60%;
+    }
+    
+    .about .row .box .exp-box{
+        padding:0 1.8rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        border-left: .2rem solid var(--main-color);
+        position: relative;
+    }
+    
+    .about .row .box .exp-box h3{
+        color:var(--main-color);
+        font-size: 2rem;
+    }
+    
+    .about .row .box .exp-box p{
+        color:var(--secondary-text-color);
+        font-size: 1.5rem;
+        padding:1rem 0;
+    }
+    
+    .about .row .box .exp-box::before{
+        content:'';
+        position: absolute;
+        top:0; left: -1rem;
+        border-radius: 50%;
+        height: 2rem;
+        width: 2rem;
+        background: var(--main-color);
+    }
+    
+    .about .download{
+        background:var(--primary-bg-color);
+        border-radius: .5rem;
+        text-align: center;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        padding:2rem;
+        padding-bottom: 3rem;
+        margin:30px;
+    }
+    
+    .services .box-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .services .box-container .box{
+        background:var(--primary-bg-color);
+        border-radius: .5rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        margin:1rem;
+        padding:1rem;
+        width:35rem;
+        text-align: center;
+        position: relative;
+        z-index: 0;
+    }
+    
+    .services .box-container .box .number{
+        position: absolute;
+        top:1.5rem; left: 2rem;
+        font-size: 2.5rem;
+        color:var(--primary-text-color);
+        margin-top: 200px;
+    }
+    
+    .services .box-container .box img{
+        height:7rem;
+        width:7rem;
+        margin:1rem;
+    }
+    
+    .services .box-container .box h3{
+        font-size: 2rem;
+        color:var(--main-color);
+    }
+    
+    .services .box-container .box p{
+        font-size: 1.5rem;
+        color:var(--secondary-text-color);
+        padding:1rem;
+    }
+    
+    .services .box-container .box::before{
+        content: '';
+        position: absolute;
+        top:0; left: 0;
+        height: 100%;
+        width: 100%;
+        background:var(--main-color);
+        z-index: -1;
+        clip-path: circle(25% at 0 0);
+        opacity: .1;
+        transition: .3s;
+    }
+    
+    .services .box-container .box:hover::before{
+        clip-path: circle(100%);
+    }
+    
+    .portfolio .button-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding:1rem 0;
+    }
+    
+    .portfolio .button-container .btn{
+        margin:1rem;
+        cursor: pointer;
+    }
+    
+    .portfolio .image-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 1rem 0;
+    }
+    
+    .portfolio .image-container .box{
+        width:35rem;
+        margin: 1rem;
+        border-radius: .5rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        overflow: hidden;
+        height: 25rem;
+        position: relative;
+        border:1.5rem solid var(--primary-bg-color);
+        cursor: pointer;
+    }
+    
+    .portfolio .image-container .box img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .portfolio .image-container .box .info{
+        position: absolute;
+        top:0; left: 0;
+        height: 100%;
+        width: 100%;
+        background:var(--primary-bg-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        opacity: .9;
+        transform: scale(0);
+    }
+    
+    .portfolio .image-container .box:hover .info{
+        transform: scale(1);
+    }
+    
+    .portfolio .image-container .box .info h3{
+        font-size: 2.5rem;
+        color:var(--primary-text-color);
+    }
+    
+    .blog .box-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .blog .box-container .box{
+        width:33rem;
+        border-radius: .5rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        margin:1.5rem;
+        background: var(--primary-bg-color);
+        overflow: hidden;
+    }
+    
+    .blog .box-container .box img{
+        width: 100%;
+        height: 20rem;
+        object-fit: cover;
+    }
+    
+    .blog .box-container .box .content{
+        padding:1.5rem;
+    }
+    
+    .blog .box-container .box .content .info{
+        border-radius: .5rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        text-align: center;
+        position: relative;
+        font-size: 1.5rem;
+        color:var(--primary-text-color);
+        background:var(--secondary-bg-color);
+        padding:1rem;
+        margin-top: -4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .blog .box-container .box .content .info i{
+        color:var(--main-color);
+        padding:0 1rem;
+    }
+    
+    .blog .box-container .box .content .title{
+        color:var(--primary-text-color);
+        display: block;
+        font-size: 2.5rem;
+        padding:.5rem 0;
+    }
+    
+    .blog .box-container .box .content .title:hover{
+        text-decoration: underline;
+        color:var(--main-color);
+    }
+    
+    .blog .box-container .box .content p{
+        color:var(--secondary-text-color);
+        padding:.5rem 0;
+        font-size: 1.5rem;
+    }
+    
+    .contact .row{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .contact .row form{
+        flex:1 1 40rem;
+        background: var(--primary-bg-color);
+        padding: 2rem;
+        margin:1rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        border-radius: .5rem;
+    }
+    
+    .contact .row .map{
+        flex:1 1 40rem;
+        margin:1rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        border-radius: .5rem;
+        border:2rem solid var(--primary-bg-color);
+        width:100%;
+    }
+    
+    .contact .row form .inputBox{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .contact .row form input, .contact .row form textarea{
+        padding:1rem 0;
+        margin:1rem 0;
+        font-size: 1.7rem;
+        border-bottom: .1rem solid var(--secondary-text-color);
+        text-transform: none;
+        background:none;
+        color:var(--main-color);
+        width: 100%;
+    }
+    
+    .contact .row form input::placeholder, .contact .row form textarea::placeholder{
+        text-transform: capitalize;
+        color:var(--secondary-text-color);
+    }
+    
+    .contact .row form input:focus, .contact .row form textarea:focus{
+        border-color: var(--main-color);
+    }
+    
+    .contact .row form .inputBox input{
+        width:49%;
+    }
+    
+    .contact .row form textarea{
+        height: 15rem;
+        resize: none;
+    }
+    
+    .contact .row form .btn{
+        cursor: pointer;
+    }
+    
+    .contact .box-container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    .contact .box-container .box{
+        flex:1 1 30rem;
+        margin:1rem;
+        padding:3rem 1rem;
+        background:var(--primary-bg-color);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        border-radius: .5rem;
+        text-align: center;
+    }
+    
+    .contact .box-container .box i{
+        height: 6rem;
+        width:6rem;
+        line-height: 6rem;
+        border-radius: 50%;
+        font-size: 3rem;
+        background:var(--secondary-bg-color);
+        color:var(--main-color);
+    }
+    
+    .contact .box-container .box h3{
+        color:var(--primary-text-color);
+        padding:1rem 0;
+        font-size: 2rem;
+    }
+    
+    .contact .box-container .box p{
+        font-size: 1.5rem;
+        color:var(--secondary-text-color);
+    }
+    
+    .footer{
+        padding:2.5rem 1rem;
+        text-align: center;
+        font-size: 2rem;
+        color:var(--primary-text-color);
+        background: var(--primary-bg-color);
+        margin-top: 1rem;
+    }
+    
+    .footer span{
+        color:var(--main-color);
+    }
+    
+    #theme-toggler{
+        position: fixed;
+        top:8.5rem; right:2rem;
+        z-index: 998;
+        height: 5rem;
+        width:5rem;
+        line-height: 5rem;
+        text-align: center;
+        font-size: 2rem;
+        background:var(--main-color);
+        color:#fff;
+        cursor: pointer;
+        border-radius: 5rem;
+    }
+    
+    #theme-toggler.fa-sun{
+        transform:rotate(-180deg);
+    }
+
+   
+    
+    /* media queries  */
+    
+    @media (max-width:991px){
+    
+        html{
+            font-size: 55%;
+        }
+    
+        section{
+            padding:1rem;
+            padding: 0 3%;
+        }
+    
+    }
+    
+    @media (max-width:768px){
+    
+        .home .image img{
+            height: auto;
+            width: 100%;
+        }
+    
+    }
+    
+    @media (max-width:400px){
+    
+        html{
+            font-size: 50%;
+        }
+    
+        .services .box-container .box{
+            width: 100%;
+        }
+    
+        .portfolio .image-container .box{
+            width:100%;
+        }
+    
+        .blog .box-container .box{
+            width:100%;
+        }
+    
+        .contact .row form .inputBox input{
+            width:100%;
+        }
+    
+    }
+    /*parte css*/
+</style>
+ 
+</head>
+<body>
+   
+<!-- html section starts  -->
+
+
+
+
+<header>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#services">services</a>
+        <a href="#blog">blog</a>
+        <a href="#contact">contact</a>
+        
+        
+    </nav>
+
+    <div id="theme-toggler" class="fas fa-moon"></div>
+
+</header>
+
+<style>
+    form{
+           display: flex;
+           flex-direction: column;
+           width: 300px;
+           padding: 50px;
+        }
+       
+        input[type=text]{
+           width: 100px;
+           margin: 8px 0;
+           display: inline-block;
+           border: 1px solid #ccc;
+           box-shadow: inset 0 1px 3px #ddd;
+           border-radius: 4px;
+           padding-left: 20px;
+           padding-right: 20px;
+           padding-top: 12px;
+           padding-bottom: 12px;
+        }
+        input[type =submit]{
+            width: 100px;
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .ciao{
+            margin-right: auto;
+            padding: 10px;
+            text-decoration: none;
+            background-color: yellow;
+            text-align: center;
+            width: min-content;
+            font-size: small;
+            display: flexbox;
+            flex-direction: row;
+            
+        }
+    </style>
+
+
+
+<section class="home" id="home">
+
+    <div class="image">
+        <img src ="my image.png">
+    </div>
+
+    <div class="content">
+        <span class="hello">Ciao</span>
+        <h3>  SONO <span>ciro romano</span> </h3>
+        <p>sono un ragazzo di 14 anni e sono un full-stack 
+        </p>
+
+        <script>
+
+        class MyForm extends React.Component {
+            render() {
+              return (
+                <form>
+                  <h1>Hello</h1>
+                  <p>Enter your name:</p>
+                  <input
+                    type="text"
+                  />
+                </form>
+              );
+            }
+          }
+          ReactDOM.render(<MyForm />, document.getElementById('root'));
+        </script>
+        <a href="#about" class="btn">about me</a>
+
+        <script>
+            class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { username: '' };
+  }
+  myChangeHandler = (event) => {
+    this.setState({username: event.target.value});
+  }
+  render() {
+    return (
+      <form>
+      <h1>Hello {this.state.username}</h1>
+      <p>Enter your name:</p>
+      <input
+        type='text'
+        onChange={this.myChangeHandler}
+      />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'))
+        </script>
+        <script>
+        class MyForm extends React.Component {
+            constructor(props) {
+              super(props);
+              this.state = { username: '' };
+            }
+            myChangeHandler = (event) => {
+              this.setState({username: event.target.value});
+            }
+            render() {
+              let header = '';
+              if (this.state.username) {
+                header = <h1>Hello {this.state.username}</h1>;
+              } else {
+                header = '';
+              }
+              return (
+                <form>
+                {header}
+                <p>Enter your name:</p>
+                <input
+                  type='text'
+                  onChange={this.myChangeHandler}
+                />
+                </form>
+              );
+            }
+        }
+          ReactDOM.render(<MyForm />, document.getElementById('root'));
+        </script>
+    </div>
+
+    <script>
+        class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { username: '' };
+  }
+  mySubmitHandler = (event) => {
+    event.preventDefault();
+    alert("You are submitting " + this.state.username);
+  }
+  myChangeHandler = (event) => {
+    this.setState({username: event.target.value});
+  }
+  render() {
+    return (
+      <form onSubmit={this.mySubmitHandler}>
+      <h1>Hello {this.state.username}</h1>
+      <p>Enter your name, and submit:</p>
+      <input
+        type='text'
+        onChange={this.myChangeHandler}
+      />
+      <input
+        type='submit'
+      />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+    </script>
+<script>
+class MyForm extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        username: '',
+        age: null,
+      };
+    }
+    myChangeHandler = (event) => {
+      let nam = event.target.name;
+      let val = event.target.value;
+      this.setState({[nam]: val});
+    }
+    render() {
+      return (
+        <form>
+        <h1>Hello {this.state.username} {this.state.age}</h1>
+        <p>Enter your name:</p>
+        <input
+          type='text'
+          name='username'
+          onChange={this.myChangeHandler}
+        />
+        <p>Enter your age:</p>
+        <input
+          type='text'
+          name='age'
+          onChange={this.myChangeHandler}
+        />
+        </form>
+      );
+    }
+  }
+  
+  ReactDOM.render(<MyForm />, document.getElementById('root')); 
+   
+</script>
+   
+   
+   <script>
+       class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      age: null,
+    };
+  }
+  mySubmitHandler = (event) => {
+    event.preventDefault();
+    let age = this.state.age;
+    if (!Number(age)) {
+      alert("Your age must be a number");
+    }
+  }
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    this.setState({[nam]: val});
+  }
+  render() {
+    return (
+      <form onSubmit={this.mySubmitHandler}>
+      <h1>Hello {this.state.username} {this.state.age}</h1>
+      <p>Enter your name:</p>
+      <input
+        type='text'
+        name='username'
+        onChange={this.myChangeHandler}
+      />
+      <p>Enter your age:</p>
+      <input
+        type='text'
+        name='age'
+        onChange={this.myChangeHandler}
+      />
+      <br/>
+      <br/>
+      <input type='submit' />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root')); 
+   </script>
+   
+  <script>
+      class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      age: null,
+      errormessage: ''
+    };
+  }
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    let err = '';
+    if (nam === "age") {
+      if (val !="" && !Number(val)) {
+        err = <strong>Your age must be a number</strong>;
+      }
+    }
+    this.setState({errormessage: err});
+    this.setState({[nam]: val});
+  }
+  render() {
+    return (
+      <form>
+      <h1>Hello {this.state.username} {this.state.age}</h1>
+      <p>Enter your name:</p>
+      <input
+        type='text'
+        name='username'
+        onChange={this.myChangeHandler}
+      />
+      <p>Enter your age:</p>
+      <input
+        type='text'
+        name='age'
+        onChange={this.myChangeHandler}
+      />
+      {this.state.errormessage}
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+  </script>
+  <script>
+      class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      description: 'The content of a textarea goes in the value attribute'
+    };
+  }
+  render() {
+    return (
+      <form>
+      <textarea value={this.state.description} />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+  </script>
+  
+
+
+
+    
+
+</section>
+
+
+        
+
+
+<section class="about" id="about">
+
+    <h1 class="heading"> about <span>me</span> </h1>
+
+    <div class="row">
+        
+
+        <div class="box">
+            <h3 class="title">coding skills</h3>
+            <div class="progress">
+                <h3> html <span>85%</span> </h3>
+                <div class="bar"><span></span></div>
+            </div>
+            <div class="progress">
+                <h3> css <span>70%</span> </h3>
+                <div class="bar"><span></span></div>
+            </div>
+            <div class="progress">
+                <h3> js <span>80%</span> </h3>
+                <div class="bar"><span></span></div>
+                <div class = "progress">
+                  <h3> php <span>85% </span></h3>
+                  <div class = "bar"><span></span></div>
+                  <div class = "progress">
+                    <h3>php/mysql<span>85%</span></h3>
+                    <div class = "bar"><span></span></div>
+                  </div>
+
+                </div>
+            </div>
+            
+
+        <div class="box">
+            <h3 class="title">professional skills</h3>
+            <div class="progress">
+            <div class="progress">
+                <h3> web development <span>80%</span> </h3>
+                <div class="bar"><span></span></div>
+            </div>
+            <div class="progress">
+
+                <div class="box">
+                
+                <div class="progress">
+                <div class="progress">
+                    <h3>sviluppo python<span>70%</span> </h3>
+                    <div class="bar"><span></span></div>
+
+                </div>
+
+
+       
+
+
+    </div>
+
+</section><br><br><br><br><br>
+
+
+
+<section class="services" id="services">
+
+    <h1 class="heading"> <span>i miei</span> servizi </h1>
+
+    <div class="box-container">
+
+        
+        
+
+        
+
+
+        <div class="box">
+            <span class="number">1</span><b>
+
+            </b>   
+            <img src ="s6.png">
+            <h3>web development</h3>
+            <p>consiste nell'usare html/css e js se si vuole anche react.</p>
+        </div>
+        <br>
+            <br><br><br><br><br><br><br><br><br>
+            <div class ="box">
+                <span class="number ">2</span><br>
+                </br>
+                <img src="back-end.png">
+                <h3>lato back-end</h3>
+                <p>so fare scripting e salvare dati nei database per il lato back-end</p>
+            </div>
+            <div class = "box">
+          <span class="number">3</span><br>
+</br>
+    <img src = "python.png">
+    <h3> python</h3>
+    <p>ho realizzato diversi progetti in python tra cui anche un intelligenza</p>
+        </div>
+        </div>
+
+   
+            <section class="blog" id="blog">
+
+                <h1 class="heading"> <span>Il mio</span> blogs </h1>
+            
+                <div class="box-container">
+            
+                    <div class="box"><br>
+                        
+                        <div class="content">
+                            <h3 class="info"> <i class="fas fa-user"></i> creato da admin <i class="fas fa-calendar"></i> iniziato 1 aprile, 2021 </h3><br>
+                            <h3 class="cl">finito il </h3>
+                        </div>
+                    </div>
+                    <section class="contact" id="contact">
+                       
+                        
+
+
+                        <h1 class="heading"> conttatami </h1>
+                    
+                        <div class="box-container">
+                            
+                    
+                    
+                            <div class="box">
+                                <i class="fas fa-envelope"></i>
+                                <h3>my email</h3>
+                                <p><a href="mailto:ciroromano1098@gmail.com" style="color: var(--secondary-color);">mailto:ciroromano1098@gmail.com</a></p>
+                            </div>
+                    
+                            <div class="box">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h3>il mio instagram</h3>
+                                <a href="https://www.instagram.com/romano_ciroo/">romano_ciroo</a>
+                            </div>
+
+                            <style>
+                                
+                            </style>
+                            
+<script>
+    // Select all tabs
+$('.nav-tabs a').click(function(){
+  $(this).tab('show');
+})
+
+
+</script>
+
+                            
+                            
+                        </div>
+
+                       
+
+                            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+                            
+
+    <!-- Carousel -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <!-- Carousel Indicators -->
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    
+    <!-- Carousel Controls -->
+    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    
+                              <script>
+                                  // Select all elements with data-toggle="tooltips" in the document
+$('[data-toggle="tooltip"]').tooltip();
+
+// Select a specified element
+$('#myTooltip').tooltip();
+
+                                  // Activate Carousel
+        $("#myCarousel").carousel();
+
+                    // Enable Carousel Indicators
+                            $(".item").click(function(){
+                    $("#myCarousel").carousel(1);
+                    });
+
+                        // Enable Carousel Controls
+                        $(".carousel-control-prev").click(function(){
+                $("#myCarousel").carousel("prev");
+                            });
+                                  $('.close').alert("close");
+                                  $('.btn').button();
+                              // Disable form submissions if there are invalid fields
+                              (function() {
+                                'use strict';
+                                window.addEventListener('load', function() {
+                                  // Get the forms we want to add validation styles to
+                                  var forms = document.getElementsByClassName('needs-validation');
+                                  // Loop over them and prevent submission
+                                  var validation = Array.prototype.filter.call(forms, function(form) {
+                                    form.addEventListener('submit', function(event) {
+                                      if (form.checkValidity() === false) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                      }
+                                      form.classList.add('was-validated');
+                                    }, false);
+                                  });
+                                }, false);
+                              })();
+                              </script>
+                              
+<p>
+ 
+</p>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+  $scope.user = 'ciro romano';
+  $scope.email = 'john.doe@gmail.com';
+});
+</script>
+
+                            
+
+
+    
+                              
+        <script>
+            document.cookie = "username=ciro romano; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+        </script>
+                    
+                       
+                            <body ng-app="myApp">
+
+                                <w3-test-directive></w3-test-directive>
+                                
+                                <script>
+                                var app = angular.module("myApp", []);
+                                app.directive("w3TestDirective", function() {
+                                  return {
+                                    template : "<h1>Made by a directive!</h1>"
+                                  };
+                                });
+                                </script>
+                                
+                                </body>
+
+                                
+
+
+                                
+                                    
+                                    
+   
+        
+
+</section><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    
+
+   
+</section>
+<!-- contact section ends -->
+
+<!-- footer section  -->
+<!--parte html fintita-->
+
+<div class="footer">creato da <span> ciro romano  </span> | !</div>
+
+
+
+
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- custom js file link  -->
+
+
+<!--inzio parte js-->
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+      $scope.names = ["Emil", "Tobias", "Linus"];
+    });
+
+    $scope.cars = [
+  {model : "Ford Mustang", color : "red"},
+  {model : "Fiat 500", color : "white"},
+  {model : "Volvo XC90", color : "black"}
+];
+    </script>
+
+    
+    
+<script>
+
+    $(document).ready(function(){
+        $('#menu').click(function(){
+            $(this).toggleClass('fa-times');
+            $('.navbar').toggleClass('nav-toggle');
+        });
+      
+        $(window).on('scroll load',function(){
+            $('#menu').removeClass('fa-times');
+          $('.navbar').removeClass('nav-toggle');
+        });
+      
+        $('.portfolio .button-container .btn').click(function(){
+      
+          let filter = $(this).attr('data-filter');
+      
+          if(filter == 'all'){
+            $('.portfolio .image-container .box').show('400')
+          }else{
+            $('.portfolio .image-container .box').not('.'+filter).hide('200');
+            $('.portfolio .image-container .box').filter('.'+filter).show('400');
+          }
+      
+        });
+      
+        $('#theme-toggler').click(function(){
+          $(this).toggleClass('fa-sun');
+          $('body').toggleClass('dark-theme');
+        });
+      
+        // smooth scrolling 
+      
+        $('a[href*="#"]').on('click',function(e){
+      
+          e.preventDefault();
+      
+          $('html, body').animate({
+      
+            scrollTop : $($(this).attr('href')).offset().top,
+      
+          },
+            500,
+            'linear'
+          );
+      
+        });
+      
+      });
+      var x = myFunction(4, 3);   // Function is called, return value will end up in x
+
+function myFunction(a, b) {
+  return a * b;             // Function returns the product of a and b
+}
+
+
+    </script>
+    <script>
+        var d = new Date();
+        d.setFullYear(2020, 11, 3);
+        document.getElementById("demo").innerHTML = d;
+        </script>
+            
+            <script>
+                var d = new Date();
+                d.setMonth(11);
+                document.getElementById("demo").innerHTML = d;
+                </script>
+                <script>
+                   
+                </script>
+
+                <script>
+                  var a = 1;
+                  var b=2;
+                  var c= a +b
+                  console.log(c)
+                </script>
+
+
+
+    <script>
+
+var i;
+for (i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+
+Math.round(4.9);    // returns 5
+Math.round(4.7);    // returns 5
+Math.round(4.4);    // returns 4
+Math.round(4.2);    // returns 4
+Math.round(-4.2);    // returns -4
+
+var person = {fname:"John", lname:"Doe", age:25};
+
+var text = "";
+var x;
+for (x in person) {
+  text += person[x];
+}
+console.log(person)
+var numbers = [45, 4, 9, 16, 25];
+
+var txt = "";
+var x;
+for (x in numbers) {
+  txt += numbers[x] + "<br>";
+}
+console.log(numbers)
+document.getElementById("demo").innerHTML = txt;
+
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
+console.log(numbers)
+
+function myFunction(value, index, array) {
+  txt = txt + value + "<br>";
+}
+let cars = ["BMW", "Volvo", "Mini"];
+let text = "";
+
+for (let x of cars) {
+  text += x + "<br>";
+}
+
+    </script>
+    <script>
+    function myFunction() {
+      var txt = "";
+      if (document.getElementById("id1").validity.rangeOverflow) {
+        txt = "Value too large";
+      }
+      document.getElementById("demo").innerHTML = txt;
+    }
+    </script>
+    
+    
+    
+    
+    <script>
+    function myFunction() {
+      var txt = "";
+      if (document.getElementById("id1").validity.rangeUnderflow) {
+        txt = "Value too small";
+      }
+      document.getElementById("demo").innerHTML = txt;
+    }
+    if(window.XMLHttpRequest){
+       // code for modern browsers
+       xmlhttp = new XMLHttpRequest();
+     }else{
+       // code for old IE browsers
+       xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET", "ajax_test.asp", true);
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+    xhttp.open("GET", "ajax_info.txt", false);
+    xhttp.send();
+    document.getElementById("demo").innerHTML = xhttp.responseText;
+    
+    
+    
+    loadDoc("url-1", myFunction1);
+    
+    loadDoc("url-2", myFunction2);
+    
+    function loadDoc(url, cFunction) {
+      var xhttp;
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          cFunction(this);
+        }
+      };
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+    
+    function myFunction1(xhttp) {
+      // action goes here
+    }
+    function myFunction2(xhttp) {
+      // action goes here
+    }
+    
+    
+    
+    </script>
+    
+    
+    <script>
+    
+    var x = myFunction(4, 3);   // Function is called, return value will end up in x
+
+function myFunction(a, b) {
+  return a * b;             // Function returns the product of a and b
+}
+    </script>
+    <script>
+        var d = new Date();
+        d.setFullYear(2020, 11, 3);
+        document.getElementById("demo").innerHTML = d;
+        </script>
+            
+            <script>
+                var d = new Date();
+                d.setMonth(11);
+                document.getElementById("demo").innerHTML = d;
+                </script>
+                <script>
+                   
+                </script>
+
+                <script>
+                  var a = 1;
+                  var b=2;
+                  var c= a +b
+                  console.log(c)
+                </script>
+
+
+
+    <script>
+
+        var condition = $scope
+
+        if(scope){
+
+        }
+
+var i;
+for (i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+
+Math.round(4.9);    // returns 5
+Math.round(4.7);    // returns 5
+Math.round(4.4);    // returns 4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,òl,òl,lòklklkjlbmhvcxd<acdsdsssssssssssss
+Math.round(4.2);    // returns 4
+Math.round(-4.2);    // returns -4
+
+var person = {fname:"John", lname:"Doe", age:25};
+
+var text = "";
+var x;
+for (x in person) {
+  text += person[x];
+}
+console.log(person)
+var numbers = [45, 4, 9, 16, 25];
+
+var txt = "";
+var x;
+for (x in numbers) {
+  txt += numbers[x] + "<br>";
+}
+console.log(numbers)
+document.getElementById("demo").innerHTML = txt;
+
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
+console.log(numbers)
+
+function myFunction(value, index, array) {
+  txt = txt + value + "<br>";
+}
+let cars = ["BMW", "Volvo", "Mini"];
+let text = "";
+
+for (let x of cars) {
+  text += x + "<br>";
+}
+
+    </script>
+    <script>
+    function myFunction() {
+      var txt = "";
+      if (document.getElementById("id1").validity.rangeOverflow) {
+        txt = "Value too large";
+      }
+      document.getElementById("demo").innerHTML = txt;
+    }
+    </script>
+    
+    <button onclick="myFunction()">OK</button>
+    
+    <p id="demo"></p>
+    
+    <script>
+    function myFunction() {
+      var txt = "";
+      if (document.getElementById("id1").validity.rangeUnderflow) {
+        txt = "Value too small";
+      }
+      document.getElementById("demo").innerHTML = txt;
+    }
+    if (window.XMLHttpRequest) {
+       // code for modern browsers
+       xmlhttp = new XMLHttpRequest();
+     } else {
+       // code for old IE browsers
+       xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET", "ajax_test.asp", true);
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+    xhttp.open("GET", "ajax_info.txt", false);
+    xhttp.send();
+    document.getElementById("demo").innerHTML = xhttp.responseText;
+    
+    
+    
+    loadDoc("url-1", myFunction1);
+    
+    loadDoc("url-2", myFunction2);
+    
+    function loadDoc(url, cFunction) {
+      var xhttp;
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          cFunction(this);
+        }
+      };
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+    
+    function myFunction1(xhttp) {
+      // action goes here
+    }
+    function myFunction2(xhttp) {
+      // action goes here
+    }
+    
+    
+    
+    </script>
+    
+    
+    
+       
+      
+    </script>
+          <script>
+          window.alert("benvenuto nella mia pagina ,clicca ok per continuare");
+    
+    if (person == null || person == "") {
+      txt = "User cancelled the prompt.";
+    } else {
+      txt = "Hello " + person + "! How are you today?";
+    }
+
+    var esatte=0;
+    var esatte=0;
+    var sbagliate=
+    risposta =prompt("chi ha sviluppato la pagina?")
+    if(risposta =="ciro"||risposta =="Ciro")
+    esatte = esatte+ esatte1;
+    
+
+    
+
+    
+    // fine parte js
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+{{ firstName + " " + lastName }}
+</div>
+
+
+<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+  $scope.firstName = "Ciro";
+  $scope.lastName = "romano";
+});
+document.cookie = "username=John Doe";
+</script>
+
+
+
+
+
+
+</body>
+</html>
+
+   
+        
